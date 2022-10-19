@@ -22,7 +22,6 @@ function App() {
     {value: 'Beef', text: 'Beef 🥩'},
     {value: 'Chicken', text: 'Chicken 🐔'},
     {value: 'Dessert', text: 'Dessert 🧁'},
-    {value: 'Goat', text: 'Goat 🐑'},
     {value: 'Lamb', text: 'Lamb 🍖'},
     {value: 'Pasta', text: 'Pasta 🍝'},
     {value: 'Pork', text: 'Pork 🐷'},

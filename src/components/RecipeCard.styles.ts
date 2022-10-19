@@ -46,6 +46,10 @@ export const LeftWrapper = styled.div`
       color: inherit;
  }
 
+ h2 {
+    color: #89D389;
+  }
+
 `;
 
 export const RightWrapper = styled.div`
@@ -58,7 +62,12 @@ export const RightWrapper = styled.div`
   ul,li { list-style-type: none;
         list-style-position:inside;
         margin:0;
-        padding:0; }
+        padding:0; 
+      }
+
+  h2 {
+    color: #89D389;
+  }
 
 `;
 

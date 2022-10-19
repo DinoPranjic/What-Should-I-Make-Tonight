@@ -1,3 +1,5 @@
+import { generateRandomNumber } from "./utils";
+
 export type Meal = {
   dateModified: string | null;
   idMeal: string;
@@ -55,8 +57,24 @@ export type Meal = {
 
 }
 
-export const fetchRecipe = async () => {
-  const endpoint = 'https://www.themealdb.com/api/json/v1/1/random.php';
+
+const searchCategories = async (category: string) => {
+  const categoryEndpoint = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
+
+  const categoryList = await (await fetch(categoryEndpoint)).json();
+
+  const randomIndex = generateRandomNumber(categoryList.meals?.length);
+
+  const randomMealID = categoryList.meals[randomIndex].idMeal;
+
+  const finalEndpoint = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${randomMealID}`;
+
+  return finalEndpoint;
+
+}
+
+export const findRandomRecipe = async (category: string) => {
+  const endpoint = await searchCategories(category);
 
   const data = await (await fetch(endpoint)).json();
 
@@ -115,4 +133,5 @@ export const fetchRecipe = async () => {
       ].filter(Boolean)
     }
   ))
+
 }

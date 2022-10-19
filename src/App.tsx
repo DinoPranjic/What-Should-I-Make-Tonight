@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { fetchRecipe } from './API';
+import React, { useState, ChangeEvent} from 'react';
+import { findRandomRecipe } from './API';
 import RecipeCard from './components/RecipeCard';
-import { GlobalStyle, Wrapper } from './App.styles';
+import { GlobalStyle, Wrapper, CategoryWrapper } from './App.styles';
 
 export type Recipe = {
   name: string;
@@ -16,28 +16,59 @@ export type Recipe = {
 }
 
 function App() {
-  const [ recipe, setRecipe ] = useState<Recipe[]>([])
-  const [ loading, setLoading ] = useState(false);
+  const categories = [
+    {value: '', text: 'Select a Category'},
+    {value: 'Breakfast', text: 'Breakfast 🍳'},
+    {value: 'Seafood', text: 'Seafood 🐟'},
+    {value: 'Beef', text: 'Beef 🥩'},
+    {value: 'Chicken', text: 'Chicken 🐔'},
+    {value: 'Dessert', text: 'Dessert 🧁'},
+    {value: 'Goat', text: 'Goat 🐑'},
+    {value: 'Lamb', text: 'Lamb 🍖'},
+    {value: 'Pasta', text: 'Pasta 🍝'},
+    {value: 'Pork', text: 'Pork 🐷'},
+    {value: 'Side', text: 'Side 🍟'},
+    {value: 'Starter', text: 'Starter 🧆'},
+    {value: 'Vegan', text: 'Vegan 🌿'},
+    {value: 'Vegetarian', text: 'Vegetarian 🥗'}
+  ];
 
-  const getRecipe = async () => {
+  const [ recipe, setRecipe ] = useState<Recipe[]>([]);
+  const [ loading, setLoading ] = useState(false);
+  const [chosenCategory, setChosenCategory] = useState(categories[0].value);
+
+  const handleSelection = (e: ChangeEvent<HTMLSelectElement>) => {
+    setChosenCategory(e.currentTarget.value);
+  }
+
+
+  const getRecipe = async (category: string) => {
     setLoading(true);
     setRecipe([]);
 
-    const newRecipe = await fetchRecipe();
+    const newRecipe = await findRandomRecipe(category);
 
     setRecipe(newRecipe);
     setLoading(false);
 
   }
-  console.log(recipe);
 
   return (
     <>
       <GlobalStyle />
       <Wrapper>
-        <h1>What Should I Make Tonight?</h1>
-        {!loading ? <button className='newRecipe' onClick={getRecipe}>New Recipe</button> : null}
-        {loading ? <p>Finding a recipe...</p>: null}
+        <h1>What Should I Eat Tonight?</h1>
+        <CategoryWrapper>
+          <select value={chosenCategory} onChange={(e) => {handleSelection(e)}}>
+            {categories.map(category => (
+              <option key={category.value} value={category.value}>
+                {category.text}
+              </option>
+            ))}
+          </select>
+        {!loading ? <button className='new-recipe' onClick={() => {getRecipe(chosenCategory)}}>Feed me!</button> : null}
+        {loading ? <button className='new-recipe'>Loading...</button>: null}
+        </CategoryWrapper>
         {!loading && recipe.length !== 0 ? (
           <RecipeCard 
             name={recipe[0].name}

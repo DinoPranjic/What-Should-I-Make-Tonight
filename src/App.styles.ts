@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-import backgroundImg from './images/background4.jpg';
+import backgroundImg from './images/background.jpg';
 
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -21,6 +21,38 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+export const CategoryWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .new-recipe {
+    cursor: pointer;
+    background: #89D389;
+    color: #fff;
+    border: 2px solid #fff;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    height: 40px;
+    margin: 20px 0;
+    padding: 0 40px;
+    font-size: 16px;
+    font-weight: 900;
+  }
+
+  select {
+    height: 40px;
+    margin-right: 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #89D389;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    opacity: 0.9;
+  }
+
+`;
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -32,7 +64,7 @@ export const Wrapper = styled.div`
   }
 
   h1 {
-    background-image: linear-gradient(180deg, #fff, #87f1ff);
+    background-image: linear-gradient(180deg, #fff, #89D389);
     background-size: 100%;
     background-clip: text;
     -webkit-background-clip: text;
@@ -46,14 +78,5 @@ export const Wrapper = styled.div`
     margin: 20px;
   }
 
-  .newRecipe {
-    cursor: pointer;
-    background: linear-gradient(180deg, #fff, #ffcc91);
-    border: 2px solid #d38558;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    height: 40px;
-    margin: 20px 0;
-    padding: 0 40px;
-  }
+
 `

@@ -17,7 +17,6 @@ const RecipeCard: React.FC<Recipe> = ({name, image, origin, category, source, yo
         <p>Country of Origin: {origin}</p>
         <p>Category: {category}</p>
         {formattedSource && <p><button><a href={source} target='blank'>{formattedSource?.hostname}</a></button></p>}
-        {/* <button><a href={source} target='blank'>{formattedSource?.hostname}</a></button> */}
         <button className='youtube'>
         <a href={youtube} target='blank'>Watch on YoutTube</a>
         </button>

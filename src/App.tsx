@@ -17,7 +17,6 @@ export type Recipe = {
 
 function App() {
   const categories = [
-    {value: '', text: 'Select a Category'},
     {value: 'Breakfast', text: 'Breakfast 🍳'},
     {value: 'Seafood', text: 'Seafood 🐟'},
     {value: 'Beef', text: 'Beef 🥩'},
@@ -60,6 +59,9 @@ function App() {
         <h1>What Should I Eat Tonight?</h1>
         <CategoryWrapper>
           <select value={chosenCategory} onChange={(e) => {handleSelection(e)}}>
+            <option disabled={true} value=''>
+              Select a Category
+            </option>
             {categories.map(category => (
               <option key={category.value} value={category.value}>
                 {category.text}

@@ -18,7 +18,7 @@ const RecipeCard: React.FC<Recipe> = ({name, image, origin, category, source, yo
         <p>Category: {category}</p>
         {formattedSource && <p><button><a href={source} target='blank'>{formattedSource?.hostname}</a></button></p>}
         <button className='youtube'>
-        <a href={youtube} target='blank'>Watch on YoutTube</a>
+        <a href={youtube} target='blank'>Watch on YouTube</a>
         </button>
         </ LeftWrapper>
         <RightWrapper>

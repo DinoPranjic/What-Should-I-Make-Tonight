@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Recipe } from '../App'
+import { Recipe } from '../constants';
 import { RecipeWrapper, LeftWrapper, RightWrapper, InstructionsWrapper } from './RecipeCard.styles';
 
 const RecipeCard: React.FC<Recipe> = ({name, image, origin, category, source, youtube, instructions, ingredients, measurements}) => {

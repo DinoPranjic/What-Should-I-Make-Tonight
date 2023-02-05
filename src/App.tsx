@@ -2,18 +2,7 @@ import React, { useState, ChangeEvent} from 'react';
 import { findRandomRecipe } from './API';
 import RecipeCard from './components/RecipeCard';
 import { GlobalStyle, Wrapper, CategoryWrapper } from './App.styles';
-
-export type Recipe = {
-  name: string;
-  image: string;
-  origin: string;
-  category: string;
-  source: string;
-  youtube: string;
-  instructions: string;
-  ingredients: string[];
-  measurements: string[];
-}
+import { Recipe } from './constants';
 
 function App() {
   const categories = [

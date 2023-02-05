@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-image: url(${backgroundImg});
     background-size: cover;
+    background-attachment: fixed;
     margin: 0;
     padding: 0 20px;
     display: flex;
@@ -34,7 +35,6 @@ export const CategoryWrapper = styled.div`
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     height: 40px;
-    margin: 20px 0;
     padding: 0 40px;
     font-family: 'Arimo', sans-serif;
     font-size: 16px;
@@ -75,19 +75,22 @@ export const Wrapper = styled.div`
   }
 
   h1 {
-    background-image: linear-gradient(180deg, #fff, #89D389);
+    /* background-image: linear-gradient(180deg, #fff, #89D389);
     background-size: 100%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
-    filter: drop-shadow(2px 2px #0085a3);
+    filter: drop-shadow(2px 2px #0085a3); */
+    color: #fff;
     font-size: 70px;
     font-family: 'Arimo', sans-serif;
-    font-weight: 400;
+    font-weight: 900;
     text-align: center;
     margin: 20px;
+    -webkit-text-fill-color: #89D389;
+    -webkit-text-stroke: 2px;
   }
 
 

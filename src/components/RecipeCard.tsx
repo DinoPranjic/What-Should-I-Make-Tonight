@@ -4,13 +4,13 @@ import { RecipeWrapper, LeftWrapper, RightWrapper, InstructionsWrapper } from '.
 
 const RecipeCard: React.FC<Recipe> = ({name, image, origin, category, source, youtube, instructions, ingredients, measurements}) => {
   const formattedImage = `${image}/preview`
-  const formattedSource = source && new URL(`${source}`) || null;
+  const formattedSource = (source && new URL(`${source}`)) || null;
 
   const formattedInstructions = instructions.match(/(.*?(?:\.|\?|!))(?: |$)/g);
 
   useEffect(() => {
     document.getElementById('recipe')?.scrollIntoView({
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   }, []);
 
@@ -18,7 +18,7 @@ const RecipeCard: React.FC<Recipe> = ({name, image, origin, category, source, yo
     <RecipeWrapper id='recipe'>
       <LeftWrapper>
         <h3>You should make...</h3>
-        <img src={formattedImage}></img>
+        <img src={formattedImage} alt=''></img>
         <h2>{name}</h2>
         <p>Country of Origin: {origin}</p>
         <p>Category: {category}</p>
@@ -36,11 +36,11 @@ const RecipeCard: React.FC<Recipe> = ({name, image, origin, category, source, yo
         </ul>
         <h2>How to make:</h2>
         <InstructionsWrapper>
-        <ul>
+        <ol type='1'>
           {formattedInstructions?.map((step, i) => (
-            <li key={i}>{i + 1}. {step}</li>
+            <li key={i}>{step}</li>
           ))}
-        </ul>
+        </ol>
         </InstructionsWrapper>
         </RightWrapper>
     </ RecipeWrapper>

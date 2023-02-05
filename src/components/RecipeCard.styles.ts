@@ -67,8 +67,8 @@ export const RightWrapper = styled.div`
     font-family: 'Roboto', sans-serif;
   }
 
-  ul,li { list-style-type: none;
-        list-style-position:inside;
+  ul {
+        list-style-type: none;
         margin:0;
         padding:0;
         font-family: 'Roboto', sans-serif;
@@ -87,6 +87,7 @@ export const InstructionsWrapper = styled.div`
   li {
     font-family: 'Roboto', sans-serif;
     line-height: 125%;
+    padding-bottom: 5px;
   }
 
 `

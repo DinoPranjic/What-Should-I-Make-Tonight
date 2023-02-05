@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Recipe } from '../App'
 import { RecipeWrapper, LeftWrapper, RightWrapper, InstructionsWrapper } from './RecipeCard.styles';
 
@@ -8,8 +8,14 @@ const RecipeCard: React.FC<Recipe> = ({name, image, origin, category, source, yo
 
   const formattedInstructions = instructions.match(/(.*?(?:\.|\?|!))(?: |$)/g);
 
+  useEffect(() => {
+    document.getElementById('recipe')?.scrollIntoView({
+      behavior: 'smooth'
+    });
+  }, []);
+
   return(
-    <RecipeWrapper>
+    <RecipeWrapper id='recipe'>
       <LeftWrapper>
         <h3>You should make...</h3>
         <img src={formattedImage}></img>

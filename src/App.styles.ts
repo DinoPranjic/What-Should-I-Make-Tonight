@@ -36,19 +36,30 @@ export const CategoryWrapper = styled.div`
     height: 40px;
     margin: 20px 0;
     padding: 0 40px;
+    font-family: 'Arimo', sans-serif;
     font-size: 16px;
-    font-weight: 900;
+    font-weight: bold;
+
+    :hover {
+      background: #7bbe7b;
+    }
   }
 
   select {
+    cursor: pointer;
     height: 40px;
     margin-right: 20px;
+    font-family: 'Arimo', sans-serif;
     font-size: 16px;
     color: #fff;
     background-color: #89D389;
     border-radius: 10px;
     border: 2px solid #fff;
     opacity: 0.9;
+
+    :hover {
+      background-color: #7bbe7b;
+    }
   }
 
 `;
@@ -73,6 +84,7 @@ export const Wrapper = styled.div`
     -moz-text-fill-color: transparent;
     filter: drop-shadow(2px 2px #0085a3);
     font-size: 70px;
+    font-family: 'Arimo', sans-serif;
     font-weight: 400;
     text-align: center;
     margin: 20px;

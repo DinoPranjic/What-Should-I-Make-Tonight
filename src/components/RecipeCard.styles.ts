@@ -20,6 +20,7 @@ export const LeftWrapper = styled.div`
 
   p {
     font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
   }
 
   img {
@@ -39,6 +40,11 @@ export const LeftWrapper = styled.div`
     margin: 20px 0;
     padding: 0 40px;
     font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+
+    :hover {
+      background: #7bbe7b;
+    }
   }
 
   a, a:hover, a:focus, a:active {
@@ -48,6 +54,7 @@ export const LeftWrapper = styled.div`
 
  h2 {
     color: #89D389;
+    font-family: 'Roboto', sans-serif;
   }
 
 `;
@@ -57,21 +64,29 @@ export const RightWrapper = styled.div`
 
   p {
     font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
   }
 
   ul,li { list-style-type: none;
         list-style-position:inside;
         margin:0;
-        padding:0; 
+        padding:0;
+        font-family: 'Roboto', sans-serif;
       }
 
   h2 {
     color: #89D389;
+    font-family: 'Roboto', sans-serif;
   }
 
 `;
 
 export const InstructionsWrapper = styled.div`
   text-align: start;
+
+  li {
+    font-family: 'Roboto', sans-serif;
+    line-height: 125%;
+  }
 
 `

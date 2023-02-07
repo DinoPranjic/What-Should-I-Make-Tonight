@@ -14,22 +14,13 @@ export const RecipeWrapper = styled.div `
   margin-bottom: 10px;
 `;
 
-export const LeftWrapper = styled.div`
-  flex: 0.4;
-  text-align: center;
-
-  p {
-    font-size: 1rem;
+export const RecipeHeader = styled.h2`
+    color: #89D389;
     font-family: 'Roboto', sans-serif;
-  }
+    font-size: 32px;
+`
 
-  img {
-    border: 1px solid #89D389;
-    border-radius: 2px;
-  }
-
-
-    button {
+export const RecipeButton = styled.button`
     cursor: pointer;
     background: #89D389;
     color: #fff;
@@ -45,18 +36,28 @@ export const LeftWrapper = styled.div`
     :hover {
       background: #7bbe7b;
     }
-  }
+
 
   a, a:hover, a:focus, a:active {
       text-decoration: none;
       color: inherit;
  }
+`
 
- h2 {
-    color: #89D389;
+export const LeftWrapper = styled.div`
+  flex: 0.4;
+  text-align: center;
+  flex-direction: column;
+
+  p {
+    font-size: 1rem;
     font-family: 'Roboto', sans-serif;
   }
 
+  img {
+    border: 1px solid #89D389;
+    border-radius: 2px;
+  }
 `;
 
 export const RightWrapper = styled.div`
@@ -73,12 +74,6 @@ export const RightWrapper = styled.div`
         padding:0;
         font-family: 'Roboto', sans-serif;
       }
-
-  h2 {
-    color: #89D389;
-    font-family: 'Roboto', sans-serif;
-  }
-
 `;
 
 export const InstructionsWrapper = styled.div`

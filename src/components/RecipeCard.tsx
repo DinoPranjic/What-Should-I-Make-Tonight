@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Recipe } from '../constants';
-import { RecipeWrapper, LeftWrapper, RightWrapper, InstructionsWrapper } from './RecipeCard.styles';
+import { RecipeWrapper, LeftWrapper, RightWrapper, InstructionsWrapper, RecipeHeader, RecipeButton } from './RecipeCard.styles';
 
 const RecipeCard: React.FC<Recipe> = ({name, image, origin, category, source, youtube, instructions, ingredients, measurements}) => {
   const formattedImage = `${image}/preview`
@@ -19,22 +19,22 @@ const RecipeCard: React.FC<Recipe> = ({name, image, origin, category, source, yo
       <LeftWrapper>
         <h3>You should make...</h3>
         <img src={formattedImage} alt=''></img>
-        <h2>{name}</h2>
+        <RecipeHeader>{name}</RecipeHeader>
         <p>Country of Origin: {origin}</p>
         <p>Category: {category}</p>
-        {formattedSource && <p><button><a href={source} target='blank'>{formattedSource?.hostname}</a></button></p>}
-        <button className='youtube'>
+        {formattedSource && <RecipeButton><a href={source} target='blank'>{formattedSource?.hostname}</a></RecipeButton>}
+        <RecipeButton>
         <a href={youtube} target='blank'>Watch on YouTube</a>
-        </button>
+        </RecipeButton>
         </ LeftWrapper>
         <RightWrapper>
-          <h2>Ingredients</h2>
+          <RecipeHeader>Ingredients</RecipeHeader>
         <ul>
         {ingredients.map((item, i) => (
           <li key={`${item}-${i}`}>{measurements[i]} {item}</li>
         ))}
         </ul>
-        <h2>How to make:</h2>
+        <RecipeHeader>How to make:</RecipeHeader>
         <InstructionsWrapper>
         <ol type='1'>
           {formattedInstructions?.map((step, i) => (
